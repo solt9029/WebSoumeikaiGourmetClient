@@ -26,7 +26,7 @@ const StyledNavbarBrand = styled(NavbarBrand)`
 export default class AppNavbar extends Component {
   render() {
     return (
-      <StyledNavbar fixed="top">
+      <StyledNavbar>
         <Container>
           <StyledNavbarBrand
             onClick={() => {

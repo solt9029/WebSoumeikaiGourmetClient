@@ -4,6 +4,13 @@ import AppJumbotron from '../containers/AppJumbotron';
 import ShopList from '../containers/ShopList';
 import AppFooter from '../containers/AppFooter';
 import qs from 'qs';
+import { Container, Row } from 'reactstrap';
+import styled from 'styled-components';
+
+const StyledContainer = styled(Container)`
+  margin-top: 40px;
+  margin-bottom: 40px;
+`;
 
 export default class App extends Component {
   componentWillMount() {
@@ -24,7 +31,16 @@ export default class App extends Component {
       <div>
         <AppNavbar />
         {this.props.keyword === '' && <AppJumbotron />}
-        <ShopList />
+        <StyledContainer>
+          {this.props.loading ? (
+            '読み込み中です'
+          ) : (
+            <Row>
+              <ShopList />
+            </Row>
+          )}
+        </StyledContainer>
+
         <AppFooter />
       </div>
     );
