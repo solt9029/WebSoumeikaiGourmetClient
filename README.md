@@ -31,3 +31,15 @@ yarn start
 ```
 yarn build
 ```
+
+## Docker
+
+```
+docker build --tag=solt9029/websoumeikaigourmetclient:latest .
+docker push solt9029/websoumeikaigourmetclient:latest
+```
+
+```
+docker pull solt9029/websoumeikaigourmetclient:latest
+docker run -d -p 8059:80 solt9029/websoumeikaigourmetclient:latest
+```
