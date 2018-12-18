@@ -1,0 +1,5 @@
+export const apiConfig = {
+  host: '192.168.99.100',
+  port: 8050,
+  shops: '/shops',
+};
