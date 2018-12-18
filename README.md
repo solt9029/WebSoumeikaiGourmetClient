@@ -41,5 +41,5 @@ docker push solt9029/websoumeikaigourmetclient:latest
 
 ```
 docker pull solt9029/websoumeikaigourmetclient:latest
-docker run -d -p 8059:80 solt9029/websoumeikaigourmetclient:latest
+docker run -d -p 8059:5000 solt9029/websoumeikaigourmetclient:latest
 ```
