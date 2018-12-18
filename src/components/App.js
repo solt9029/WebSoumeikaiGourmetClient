@@ -3,11 +3,13 @@ import AppNavbar from '../containers/AppNavbar';
 import AppJumbotron from '../containers/AppJumbotron';
 import ShopList from '../containers/ShopList';
 import AppFooter from '../containers/AppFooter';
-import queryString from 'query-string';
+import qs from 'qs';
 
 export default class App extends Component {
   componentWillMount() {
-    const query = queryString.parse(this.props.location.search);
+    const query = qs.parse(this.props.location.search, {
+      ignoreQueryPrefix: true,
+    });
 
     // check keyword property exists (https://chaika.hatenablog.com/entry/2017/04/14/083000)
     if ('keyword' in query) {
