@@ -65,7 +65,7 @@ export default class Shop extends Component {
       <Col lg={4} md={6} sm={12} xs={12}>
         <StyledCard>
           <StyledCardImg
-            src={`http://${apiConfig.host}:${apiConfig.port}${
+            src={`http://${apiConfig.host}:${apiConfig.port}/storage/${
               this.props.shop.img
             }`}
           />
