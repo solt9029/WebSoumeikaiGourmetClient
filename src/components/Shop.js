@@ -101,16 +101,18 @@ export default class Shop extends Component {
                 <i className="fa fa-map-marker" /> {this.props.shop.address}
               </StyledCardText>
             </Group>
-            <Button
-              outline
-              color="warning"
-              block
-              onClick={() => {
-                window.open(this.props.shop.link, '_blank');
-              }}
-            >
-              食べログで確認
-            </Button>
+            {this.props.shop.link && (
+              <Button
+                outline
+                color="warning"
+                block
+                onClick={() => {
+                  window.open(this.props.shop.link, '_blank');
+                }}
+              >
+                食べログで確認
+              </Button>
+            )}
           </StyledCardBody>
         </StyledCard>
       </Col>
