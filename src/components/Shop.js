@@ -8,7 +8,7 @@ import {
   CardTitle,
   Button,
 } from 'reactstrap';
-import { apiConfig } from '../config/api';
+import apiConfig from '../config/api';
 import styled from 'styled-components';
 import '@fortawesome/fontawesome';
 import '@fortawesome/fontawesome-free-solid';

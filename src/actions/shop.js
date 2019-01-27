@@ -1,6 +1,6 @@
 import { history } from '../history';
 import axios from 'axios';
-import { apiConfig } from '../config/api';
+import apiConfig from '../config/api';
 
 export const START_REQUEST = 'START_REQUEST';
 export const FINISH_REQUEST_SUCCESS = 'FINISH_REQUEST_SUCCESS';

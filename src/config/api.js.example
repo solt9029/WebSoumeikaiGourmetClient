@@ -1,5 +1,15 @@
-export const apiConfig = {
-  host: '192.168.99.100',
+let apiConfig = {
+  host: 'localhost',
   port: 8050,
   shops: '/shops',
 };
+
+if (process.env.NODE_ENV === 'production') {
+  apiConfig = {
+    host: 'soumeikaigourmetapi.solt9029.com',
+    port: 80,
+    shops: '/shops',
+  };
+}
+
+export default apiConfig;
