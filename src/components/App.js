@@ -32,13 +32,7 @@ export default class App extends Component {
         <AppNavbar />
         {this.props.keyword === '' && <AppJumbotron />}
         <StyledContainer>
-          {this.props.loading ? (
-            '読み込み中です'
-          ) : (
-            <Row>
-              <ShopList />
-            </Row>
-          )}
+          {this.props.loading ? '読み込み中です' : <ShopList />}
         </StyledContainer>
 
         <AppFooter />
