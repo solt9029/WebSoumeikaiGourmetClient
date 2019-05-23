@@ -5,15 +5,21 @@ import {
   UPDATE_KEYWORD,
   UPDATE_CANCEL_TOKEN_SOURCE,
   UPDATE_AREA,
+  START_ALL_LIST_REQUEST,
+  FINISH_ALL_LIST_REQUEST_FAILURE,
+  FINISH_ALL_LIST_REQUEST_SUCCESS,
 } from '../actions/shop';
 
 const initialState = {
   list: [],
   keyword: '',
-  area: '',
+  area: '全ての地域',
   cancelTokenSource: null,
   loading: false,
   error: false,
+  allList: [],
+  allListLoading: false,
+  allListError: false,
 };
 
 export default (state = initialState, action) => {
@@ -29,11 +35,31 @@ export default (state = initialState, action) => {
         list: action.payload.list,
         cancelTokenSource: null,
         loading: false,
+        error: false,
       };
     case FINISH_REQUEST_FAILURE:
       return {
         ...state,
-        error: action.payload.error,
+        loading: false,
+        error: true,
+      };
+    case START_ALL_LIST_REQUEST:
+      return {
+        ...state,
+        allListLoading: true,
+      };
+    case FINISH_ALL_LIST_REQUEST_SUCCESS:
+      return {
+        ...state,
+        allList: action.payload.allList,
+        allListloading: false,
+        allListError: false,
+      };
+    case FINISH_ALL_LIST_REQUEST_FAILURE:
+      return {
+        ...state,
+        allListLoading: false,
+        allListError: true,
       };
     case UPDATE_KEYWORD:
       return {

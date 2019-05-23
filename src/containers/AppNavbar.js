@@ -4,11 +4,12 @@ import { update } from '../actions/shop';
 
 const mapStateToProps = state => ({
   keyword: state.shop.keyword,
+  area: state.shop.area,
 });
 
 const mapDispatchToProps = dispatch => ({
-  update(keyword) {
-    dispatch(update(keyword));
+  update(keyword, area) {
+    dispatch(update(keyword, area));
   },
 });
 

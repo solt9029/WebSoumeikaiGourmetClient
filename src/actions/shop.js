@@ -9,6 +9,11 @@ export const FINISH_REQUEST_FAILURE = 'FINISH_REQUEST_FAILURE';
 export const UPDATE_KEYWORD = 'UPDATE_KEYWORD';
 export const UPDATE_CANCEL_TOKEN_SOURCE = 'UPDATE_CANCEL_TOKEN_SOURCE';
 export const UPDATE_AREA = 'UPDATE_AREA';
+export const FINISH_ALL_LIST_REQUEST_SUCCESS =
+  'FINISH_ALL_LIST_REQUEST_SUCCESS';
+export const FINISH_ALL_LIST_REQUEST_FAILURE =
+  'FINISH_ALL_LIST_REQUEST_FAILURE';
+export const START_ALL_LIST_REQUEST = 'START_ALL_LIST_REQUEST';
 
 export const startRequest = () => ({
   type: START_REQUEST,
@@ -39,6 +44,38 @@ export const updateArea = area => ({
   type: UPDATE_AREA,
   payload: {
     area: area,
+  },
+});
+
+export const startAllListRequest = () => ({
+  type: START_ALL_LIST_REQUEST,
+});
+
+export const fetchAllList = () => {
+  return async (dispatch, getState) => {
+    dispatch(startAllListRequest());
+    try {
+      const response = await axios.get(
+        `http://${apiConfig.host}:${apiConfig.port}${apiConfig.shops}`
+      );
+      dispatch(finishAllListRequestSuccess(response.data));
+    } catch (error) {
+      dispatch(finishAllListRequestFailure(error));
+    }
+  };
+};
+
+export const finishAllListRequestSuccess = allList => ({
+  type: FINISH_ALL_LIST_REQUEST_SUCCESS,
+  payload: {
+    allList,
+  },
+});
+
+export const finishAllListRequestFailure = error => ({
+  type: FINISH_ALL_LIST_REQUEST_FAILURE,
+  payload: {
+    error: error,
   },
 });
 

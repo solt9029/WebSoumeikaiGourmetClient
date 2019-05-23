@@ -75,7 +75,12 @@ export default class Shop extends Component {
               <StyledCardText>
                 {this.props.shop.owner_graduated_at}卒{' '}
                 <SearchSpan
-                  onClick={() => this.props.update(this.props.shop.owner_group)}
+                  onClick={() =>
+                    this.props.update(
+                      this.props.shop.owner_group,
+                      this.props.area
+                    )
+                  }
                 >
                   {this.props.shop.owner_group}
                 </SearchSpan>
@@ -83,7 +88,12 @@ export default class Shop extends Component {
               <StyledCardText>
                 {this.props.shop.owner_name} (部活:{' '}
                 <SearchSpan
-                  onClick={() => this.props.update(this.props.shop.owner_club)}
+                  onClick={() =>
+                    this.props.update(
+                      this.props.shop.owner_club,
+                      this.props.area
+                    )
+                  }
                 >
                   {this.props.shop.owner_club}
                 </SearchSpan>

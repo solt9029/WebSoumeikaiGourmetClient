@@ -30,14 +30,14 @@ export default class AppNavbar extends Component {
         <Container>
           <StyledNavbarBrand
             onClick={() => {
-              this.props.update('');
+              this.props.update('', this.props.area);
             }}
           >
             総明会グルメガイド
           </StyledNavbarBrand>
           <Form inline onSubmit={e => e.preventDefault()}>
             <DebounceInput
-              onChange={e => this.props.update(e.target.value)}
+              onChange={e => this.props.update(e.target.value, this.props.area)}
               value={this.props.keyword}
               debounceTimeout={500}
               type="text"

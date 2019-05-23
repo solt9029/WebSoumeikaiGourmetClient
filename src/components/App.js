@@ -42,6 +42,7 @@ export default class App extends Component {
 
   onClick = e => {
     let text = e.currentTarget.textContent;
+    this.props.update(this.props.keyword, e.currentTarget.textContent);
     console.log(text);
   };
 
@@ -51,25 +52,32 @@ export default class App extends Component {
     });
 
     const keyword = 'keyword' in query ? query.keyword : '';
-    const area = 'area' in query ? query.area : '';
+    const area = 'area' in query ? query.area : '全ての地域';
     this.props.update(keyword, area);
+
+    this.props.fetchAllList();
   }
 
   render() {
-    const sortedList = groupBy(this.props.list, 'area');
+    const sortedList = groupBy(this.props.allList, 'area');
 
     return (
       <div>
         <AppNavbar />
-        {this.props.keyword === '' && <AppJumbotron />}
+        {this.props.keyword === '' && this.props.area === '全ての地域' && (
+          <AppJumbotron />
+        )}
         <StyledContainer>
           {this.props.loading ? (
             '読み込み中です'
+          ) : this.props.error ? (
+            'エラーが発生しました'
           ) : (
             <Fragment>
               <StyledDropdown isOpen={this.state.isOpen} toggle={this.toggle}>
-                <DropdownToggle caret>地域を選択してください</DropdownToggle>
+                <DropdownToggle caret>地域：{this.props.area}</DropdownToggle>
                 <DropdownMenu>
+                  <DropdownItem onClick={this.onClick}>全ての地域</DropdownItem>
                   {Object.keys(sortedList).map((key, index) => {
                     return (
                       <DropdownItem onClick={this.onClick} key={index}>
