@@ -22,12 +22,12 @@ export default class ShopList extends Component {
   render() {
     const sortedList = groupBy(this.props.list, 'area');
 
-    console.log(sortedList);
+    // console.log(sortedList);
     return (
       <Fragment>
-        {Object.keys(sortedList).map(key => {
+        {Object.keys(sortedList).map((key, index) => {
           return (
-            <StyledRow>
+            <StyledRow key={index}>
               <Col xs={12}>
                 <Title>{key}</Title>
               </Col>

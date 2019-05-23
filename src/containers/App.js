@@ -6,6 +6,7 @@ import { update } from '../actions/shop';
 const mapStateToProps = state => ({
   keyword: state.shop.keyword,
   loading: state.shop.loading,
+  list: state.shop.list,
 });
 
 const mapDispatchToProps = dispatch => ({
