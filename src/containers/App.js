@@ -10,8 +10,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  update(keyword) {
-    dispatch(update(keyword));
+  update(keyword, area) {
+    dispatch(update(keyword, area));
   },
 });
 

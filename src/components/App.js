@@ -50,12 +50,9 @@ export default class App extends Component {
       ignoreQueryPrefix: true,
     });
 
-    // check keyword property exists (https://chaika.hatenablog.com/entry/2017/04/14/083000)
-    if ('keyword' in query) {
-      this.props.update(query.keyword);
-    } else {
-      this.props.update('');
-    }
+    const keyword = 'keyword' in query ? query.keyword : '';
+    const area = 'area' in query ? query.area : '';
+    this.props.update(keyword, area);
   }
 
   render() {

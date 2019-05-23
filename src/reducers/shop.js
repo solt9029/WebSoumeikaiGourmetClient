@@ -4,11 +4,13 @@ import {
   FINISH_REQUEST_FAILURE,
   UPDATE_KEYWORD,
   UPDATE_CANCEL_TOKEN_SOURCE,
+  UPDATE_AREA,
 } from '../actions/shop';
 
 const initialState = {
   list: [],
   keyword: '',
+  area: '',
   cancelTokenSource: null,
   loading: false,
   error: false,
@@ -37,6 +39,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         keyword: action.payload.keyword,
+      };
+    case UPDATE_AREA:
+      return {
+        ...state,
+        area: action.payload.area,
       };
     case UPDATE_CANCEL_TOKEN_SOURCE:
       return {
